@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  so-server:
+    build: ./so-server
+    ports:
+      - "3087:3087"
+    networks:
+      - app-network
+
+  stack-overflow-clone:
+    build: ./stack-overflow-clone
+    ports:
+      - "8087:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
